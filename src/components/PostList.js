@@ -13,6 +13,8 @@ function PostList(props) {
           message={post.message}
           timestamp={post.timestamp}
           username={post.username}
+          upvotes={post.upvotes}
+          downvotes={post.downvotes}
           id={post.id}
           key={post.id}
           whenClickingUpVote={props.onClickingUpVote}

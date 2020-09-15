@@ -9,6 +9,8 @@ function Post(props) {
       <h3>{props.message}</h3>
       <h3>{props.timestamp}</h3>
       <h3>{props.username}</h3>
+      <h3>{props.upvotes}</h3>
+      <h3>{props.downvotes}</h3>
       <button onClick={() => props.whenClickingUpVote(props.id)}>Upvote</button>
       <button onClick={() => props.whenClickingDownVote(props.id)}>Downvote</button>
       <hr />
@@ -21,6 +23,8 @@ Post.propTypes = {
   message: PropTypes.string,
   timestamp: PropTypes.string,
   username: PropTypes.string,
+  upvotes: PropTypes.number,
+  downvotes: PropTypes.number,
   whenClickingUpVote: PropTypes.func,
   whenClickingDownVote: PropTypes.func
 };

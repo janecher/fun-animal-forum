@@ -6,9 +6,9 @@ function NewPostForm(props) {
 
   function handleNewPostFormSubmission(event) {
     event.preventDefault();
-    props.onNewPostCreation({ title: event.target.title.value, message: event.target.message.value, username: event.target.username.value, timestamp: new Date(), id: v4() });
+    props.onNewPostCreation({ title: event.target.title.value, message: event.target.message.value, username: event.target.username.value, timestamp: new Date(), upvotes: 0, downvotes: 0, id: v4() });
   }
-  
+
   return (
     <React.Fragment>
       <form onSubmit={handleNewPostFormSubmission}>
