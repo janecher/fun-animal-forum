@@ -92,8 +92,12 @@ class AnimalControl extends React.Component {
         {currentlyVisibleState}
       </React.Fragment>
     );
-
   }
+}
+
+AnimalControl.propTypes = {
+  masterPostList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool
 }
 
 export default AnimalControl;
