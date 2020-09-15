@@ -41,5 +41,19 @@ describe('postListReducer', () => {
       }
     });
   });
-  
+
+  test('Should successfully add an upvote to postData', () => {
+    const { title, username, message, timestamp, upvotes, downvotes, id } = postData;
+    action = {
+      type: 'ADD_POST',
+      title: title,
+      username: username,
+      message: message,
+      timestamp: timestamp,
+      upvotes: upvotes,
+      downvotes: downvotes,
+      id: id
+    };
+  });
+
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import PostList from './PostList';
 import NewPostForm from './NewPostForm';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class AnimalControl extends React.Component {
 
@@ -99,5 +100,13 @@ AnimalControl.propTypes = {
   masterPostList: PropTypes.object,
   formVisibleOnPage: PropTypes.bool
 }
+
+const mapStateToProps = state => {
+  return {
+    masterPostList: state
+  }
+}
+
+AnimalControl = connect(mapStateToProps)(AnimalControl);
 
 export default AnimalControl;

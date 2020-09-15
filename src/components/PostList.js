@@ -8,7 +8,6 @@ function PostList(props) {
       <hr />
       {Object.values(props.postList).map((post) => {
         return <Post
-          //post={post}
           title={post.title}
           message={post.message}
           timestamp={post.timestamp}
