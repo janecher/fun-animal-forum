@@ -1,4 +1,49 @@
+# Animal Facts Forum
+
+## _React and Redux Practice for Epicodus, 09.15.2020_
+<br>
+
+### By Kate Skorija, Mariel Hamson, Evgeniya Chernaya
+<br>
+
+## Description
+
+This week we learned the basics of Redux for React, focusing on planning where state lives, implementing redux with single and multiple state slices, and moving local and shared state to the Redux store. This is a forum for fun animal facts, where a user can see all animal facts posts, add a new post, upvote and downvote posts, as well as see which posts are most popular. Users can also see the posts sorted in order of popularity.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br><br>
+
+## Component Diagram
+
+![Component Diagram](./public/componentDiagram.png)
+<br><br>
+
+## User Stories
+
+*  As a user, I want to enter content into a form and submit to create a new post.
+*  As a user, I want my new posts to include a timestamp. And I want to see when other listings were posted, too.
+*  As a user, I want to upvote posts I particularly enjoy.
+*  As a user, I want to downvote posts I don't like, or find inappropriate.
+*  As a user, I'd like posts with the most upvotes to appear higher on the page
+<br><br>
+
+## Known Bugs
+
+There are no known bugs at this time.
+<br><br>
+
+## Support and Contact Details
+
+If there are any issues or questions, please reach through our Github accounts: [kate-skorija](https://github.com/kate-skorija), [MarielHamson](https://github.com/MarielHamson), [janecher](https://github.com/janecher).
+<br><br>
+
+## Technologies Used
+
+*  [Visual Studio Code](https://code.visualstudio.com/)
+*  [Markdown](https://daringfireball.net/projects/markdown/)
+*  [React](https://reactjs.org/)
+*  [Redux](https://redux.js.org/basics/usage-with-react)
+<br><br>
 
 ## Available Scripts
 
@@ -11,11 +56,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -43,26 +83,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### License
 
-### Analyzing the Bundle Size
+*This project uses the following license: [MIT](https://opensource.org/licenses/MIT)*
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2020 **_Kate Skorija, Mariel Hamson, Evgeniya Chernaya_** 
