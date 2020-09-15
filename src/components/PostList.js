@@ -7,6 +7,7 @@ function PostList(props) {
     <React.Fragment>
       <hr />
       {Object.values(props.postList).map((post) => {
+        console.log(typeof (post.timestamp));
         return <Post
           title={post.title}
           message={post.message}

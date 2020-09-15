@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import postListReducer from './reducers/post-list-reducer';
+import rootReducer from './reducers/index';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(postListReducer);
+const store = createStore(rootReducer);
 
 store.subscribe(() => console.log(store.getState()))
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store= {store}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
