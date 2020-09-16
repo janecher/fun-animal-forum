@@ -2,6 +2,7 @@ import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import postListReducer from '../../reducers/post-list-reducer';
+import selectedPostReducer from '../../reducers/selected-post-reducer';
 import * as c from '../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
@@ -11,6 +12,7 @@ describe('rootReducer', () => {
 		expect(rootReducer({}, { type: null })).toEqual({
 			masterPostList: {},
 			formVisibleOnPage: false,
+			selectedPost: null,
 		});
 	});
 
@@ -23,6 +25,12 @@ describe('rootReducer', () => {
 	test('Check that initial state of formVisibleReducer matches root reducer', () => {
 		expect(store.getState().formVisibleOnPage).toEqual(
 			formVisibleReducer(undefined, { type: null })
+		);
+	});
+
+	test('Check that initial state of selectedPostReducer matches root reducer', () => {
+		expect(store.getState().selectedPost).toEqual(
+			selectedPostReducer(undefined, { type: null })
 		);
 	});
 
@@ -50,6 +58,23 @@ describe('rootReducer', () => {
 		store.dispatch(action);
 		expect(store.getState().formVisibleOnPage).toEqual(
 			formVisibleReducer(undefined, action)
+		);
+	});
+
+	test('Check that initial state of selectedPostReducer matches root reducer', () => {
+		const action = {
+			type: c.SELECT_POST,
+			title: 'Elephants!',
+			message: 'they think we are cute',
+			username: 'Mars',
+			timestamp: new Date(),
+			upvotes: 0,
+			downvotes: 0,
+			id: 1,
+		};
+		store.dispatch(action);
+		expect(store.getState().selectedPost).toEqual(
+			selectedPostReducer(undefined, action)
 		);
 	});
 });
