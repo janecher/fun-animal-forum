@@ -36,3 +36,9 @@ export const selectPost = (post) => {
 		id: id,
 	};
 };
+
+export const selectPostToNull = () => {
+	return {
+		type: c.SELECT_POST_NULL
+	};
+};

@@ -11,14 +11,12 @@ function Post(props) {
 				<h3>{props.username}</h3>
 				<h3>{props.upvotes}</h3>
 				<h3>{props.downvotes}</h3>
-				<button onClick={() => props.whenClickingUpVote(props.id)}>
-					Upvote
-				</button>
-				<button onClick={() => props.whenClickingDownVote(props.id)}>
-					Downvote
-				</button>
-				<hr />
 			</div>
+			<button onClick={() => props.whenClickingUpVote(props.id)}>Upvote</button>
+			<button onClick={() => props.whenClickingDownVote(props.id)}>
+				Downvote
+			</button>
+			<hr />
 		</React.Fragment>
 	);
 }

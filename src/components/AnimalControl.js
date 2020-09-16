@@ -14,10 +14,11 @@ class AnimalControl extends React.Component {
 
 	handleClick = () => {
 		const { dispatch } = this.props;
+		const action2 = a.selectPostToNull();
+		dispatch(action2);
+
 		const action = a.toggleForm();
 		dispatch(action);
-		// const action2 = a.selectPost(null);
-		// dispatch(action2);
 	};
 
 	handleChangingSelectedPost = (id) => {
@@ -38,7 +39,6 @@ class AnimalControl extends React.Component {
 	handleUpVote = (postId) => {
 		const postToUpVote = this.props.masterPostList[postId];
 		const { dispatch } = this.props;
-		//const { id, title, username, message, timestamp, upvotes, downvotes } = postToUpVote;
 		const addOneUpVote = postToUpVote.upvotes + 1;
 		postToUpVote.upvotes = addOneUpVote;
 		const action = a.addPost(postToUpVote);
@@ -48,7 +48,6 @@ class AnimalControl extends React.Component {
 	handleDownVote = (postId) => {
 		const postToDownVote = this.props.masterPostList[postId];
 		const { dispatch } = this.props;
-		//const { id, title, username, message, timestamp, upvotes, downvotes } = postToDownVote;
 		const addOneDownVote = postToDownVote.downvotes + 1;
 		postToDownVote.downvotes = addOneDownVote;
 		const action = a.addPost(postToDownVote);

@@ -23,6 +23,8 @@ export default (state = null, action) => {
 					id: id,
 				},
 			};
+		case c.SELECT_POST_NULL:
+			return null;
 		default:
 			return state;
 	}
