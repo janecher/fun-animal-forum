@@ -36,4 +36,27 @@ describe('animal forum actions', () => {
 			id: 1,
 		});
 	});
+
+	it('selectPost should create SELECT_POST action', () => {
+		expect(
+			actions.selectPost({
+				title: 'New Fact',
+				username: 'Mars',
+				message: 'animals are cute',
+				timestamp: '2020-09-16T20:07:59.113Z',
+				upvotes: 0,
+				downvotes: 0,
+				id: 1,
+			})
+		).toEqual({
+			type: c.SELECT_POST,
+			title: 'New Fact',
+			username: 'Mars',
+			message: 'animals are cute',
+			timestamp: '2020-09-16T20:07:59.113Z',
+			upvotes: 0,
+			downvotes: 0,
+			id: 1,
+		});
+	});
 });
