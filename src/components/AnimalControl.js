@@ -98,8 +98,18 @@ AnimalControl.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+	const copyOfMasterPostList = {};
+	Object.keys(state.masterPostList)
+		.sort(function (id, id2) {
+			return (
+				state.masterPostList[id2].upvotes - state.masterPostList[id].upvotes
+			);
+		})
+		.forEach(function (upvotes) {
+			copyOfMasterPostList[upvotes] = state.masterPostList[upvotes];
+		});
 	return {
-		masterPostList: state.masterPostList,
+		masterPostList: copyOfMasterPostList,
 		formVisibleOnPage: state.formVisibleOnPage,
 	};
 };
