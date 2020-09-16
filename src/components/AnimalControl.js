@@ -1,6 +1,7 @@
 import React from 'react';
 import PostList from './PostList';
 import NewPostForm from './NewPostForm';
+import PostDetail from './PostDetail';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as a from './../actions';
@@ -14,6 +15,15 @@ class AnimalControl extends React.Component {
 	handleClick = () => {
 		const { dispatch } = this.props;
 		const action = a.toggleForm();
+		dispatch(action);
+		// const action2 = a.selectPost(null);
+		// dispatch(action2);
+	};
+
+	handleChangingSelectedPost = (id) => {
+		const { dispatch } = this.props;
+		const selectedPostInMasterPostList = this.props.masterPostList[id];
+		const action = a.selectPost(selectedPostInMasterPostList);
 		dispatch(action);
 	};
 
@@ -32,16 +42,6 @@ class AnimalControl extends React.Component {
 		const addOneUpVote = postToUpVote.upvotes + 1;
 		postToUpVote.upvotes = addOneUpVote;
 		const action = a.addPost(postToUpVote);
-		// {
-		//   type: 'ADD_POST',
-		//   id: id,
-		//   title: title,
-		//   username: username,
-		//   message: message,
-		//   timestamp: timestamp,
-		//   upvotes: addOneUpVote,
-		//   downvotes: downvotes
-		// }
 		dispatch(action);
 	};
 
@@ -52,23 +52,16 @@ class AnimalControl extends React.Component {
 		const addOneDownVote = postToDownVote.downvotes + 1;
 		postToDownVote.downvotes = addOneDownVote;
 		const action = a.addPost(postToDownVote);
-		// {
-		//   type: 'ADD_POST',
-		//   id: id,
-		//   title: title,
-		//   username: username,
-		//   message: message,
-		//   timestamp: timestamp,
-		//   upvotes: upvotes,
-		//   downvotes: addOneDownVote
-		// }
 		dispatch(action);
 	};
 
 	render() {
 		let currentlyVisibleState = null;
 		let buttonText = null;
-		if (this.props.formVisibleOnPage) {
+		if (this.props.selectedPost !== null) {
+			currentlyVisibleState = <PostDetail post={this.props.selectedPost} />;
+			buttonText = 'Return to post list';
+		} else if (this.props.formVisibleOnPage) {
 			currentlyVisibleState = (
 				<NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />
 			);
@@ -79,6 +72,7 @@ class AnimalControl extends React.Component {
 					postList={this.props.masterPostList}
 					onClickingUpVote={this.handleUpVote}
 					onClickingDownVote={this.handleDownVote}
+					onClickingPost={this.handleChangingSelectedPost}
 				/>
 			);
 			buttonText = 'Add new post';
@@ -95,6 +89,7 @@ class AnimalControl extends React.Component {
 AnimalControl.propTypes = {
 	masterPostList: PropTypes.object,
 	formVisibleOnPage: PropTypes.bool,
+	selectedPost: PropTypes.object,
 };
 
 const mapStateToProps = (state) => {
@@ -108,9 +103,11 @@ const mapStateToProps = (state) => {
 		.forEach(function (id) {
 			copyOfMasterPostList[id] = state.masterPostList[id];
 		});
+	console.log(state);
 	return {
 		masterPostList: copyOfMasterPostList,
 		formVisibleOnPage: state.formVisibleOnPage,
+		selectedPost: state.selectedPost,
 	};
 };
 
