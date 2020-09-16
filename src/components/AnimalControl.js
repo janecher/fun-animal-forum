@@ -105,8 +105,8 @@ const mapStateToProps = (state) => {
 				state.masterPostList[id2].upvotes - state.masterPostList[id].upvotes
 			);
 		})
-		.forEach(function (upvotes) {
-			copyOfMasterPostList[upvotes] = state.masterPostList[upvotes];
+		.forEach(function (id) {
+			copyOfMasterPostList[id] = state.masterPostList[id];
 		});
 	return {
 		masterPostList: copyOfMasterPostList,
