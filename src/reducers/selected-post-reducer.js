@@ -1,6 +1,6 @@
 import * as c from './../actions/ActionTypes';
 
-export default (state = {}, action) => {
+export default (state = null, action) => {
 	const {
 		title,
 		username,
@@ -11,8 +11,8 @@ export default (state = {}, action) => {
 		id,
 	} = action;
 	switch (action.type) {
-		case c.ADD_POST:
-			return Object.assign({}, state, {
+		case c.SELECT_POST:
+			return {
 				[id]: {
 					title: title,
 					username: username,
@@ -22,7 +22,9 @@ export default (state = {}, action) => {
 					downvotes: downvotes,
 					id: id,
 				},
-			});
+			};
+		case c.SELECT_POST_NULL:
+			return null;
 		default:
 			return state;
 	}
