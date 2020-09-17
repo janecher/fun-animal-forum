@@ -14,11 +14,13 @@ class AnimalControl extends React.Component {
 
 	handleClick = () => {
 		const { dispatch } = this.props;
-		const action2 = a.selectPostToNull();
-		dispatch(action2);
-
-		const action = a.toggleForm();
-		dispatch(action);
+		if (this.props.selectedPost != null) {
+			const action2 = a.selectPostToNull();
+			dispatch(action2);
+		} else {
+			const action = a.toggleForm();
+			dispatch(action);
+		}
 	};
 
 	handleChangingSelectedPost = (id) => {
