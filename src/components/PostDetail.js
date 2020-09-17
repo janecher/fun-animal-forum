@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 
 function PostDetail(props) {
-	const { post, onClickingUpVote, onClickingDownVote } = props;
+	const { post, onClickingUpVote, onClickingDownVote, upvotes, downvotes } = props;
 	// render() {
 	// 	const { post, onClickingUpVote, onClickingDownVote } = props;
 	// 	return (
@@ -24,8 +24,8 @@ function PostDetail(props) {
 		<React.Fragment>
 			<h1> Post details </h1>
 			<p>{Object.values(post)[0].message}</p>
-			<p>Upvotes: {Object.values(post)[0].upvotes}</p>
-			<p>Downvotes: {Object.values(post)[0].downvotes}</p>
+			<p>Upvotes: {upvotes}</p>
+			<p>Downvotes: {downvotes}</p>
 			<button onClick={() => onClickingUpVote(Object.values(post)[0].id)}>Upvote</button>
 			<button onClick={() => onClickingDownVote(Object.values(post)[0].id)}>Downvote</button>
 			{console.log(Object.values(post))}
@@ -36,10 +36,10 @@ function PostDetail(props) {
 
 const mapStateToProps = (state, props) => {
 	return {
-		masterPostList: { ...state.masterPostList },
-		selectedPost: state.selectedPost[Object.values(props.post)[0].id]
-
-		//upvotes: state.masterPostList[Object.values(props.post)[0].id].upvotes
+		// masterPostList: { ...state.masterPostList },
+		// selectedPost: state.selectedPost[Object.values(props.post)[0].id]
+		downvotes: state.masterPostList[Object.values(props.post)[0].id].downvotes,
+		upvotes: state.masterPostList[Object.values(props.post)[0].id].upvotes
 	}
 }
 
