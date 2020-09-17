@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 
 const store = createStore(rootReducer);
 
-store.subscribe(() => console.log(store.getState()));
+//store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
 	<React.StrictMode>

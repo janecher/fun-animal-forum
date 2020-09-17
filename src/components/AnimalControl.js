@@ -60,7 +60,7 @@ class AnimalControl extends React.Component {
 		let currentlyVisibleState = null;
 		let buttonText = null;
 		if (this.props.selectedPost !== null) {
-			currentlyVisibleState = <PostDetail post={this.props.selectedPost} />;
+			currentlyVisibleState = <PostDetail post={this.props.selectedPost} onClickingUpVote={this.handleUpVote} onClickingDownVote={this.handleDownVote} />;
 			buttonText = 'Return to post list';
 		} else if (this.props.formVisibleOnPage) {
 			currentlyVisibleState = (
