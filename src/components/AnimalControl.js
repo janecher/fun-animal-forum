@@ -104,7 +104,6 @@ const mapStateToProps = (state) => {
 		.forEach(function (id) {
 			copyOfMasterPostList[id] = state.masterPostList[id];
 		});
-	console.log(state);
 	return {
 		masterPostList: copyOfMasterPostList,
 		formVisibleOnPage: state.formVisibleOnPage,

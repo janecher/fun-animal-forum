@@ -8,7 +8,7 @@ export default (state = null, action) => {
 		timestamp,
 		upvotes,
 		downvotes,
-		id,
+		id
 	} = action;
 	switch (action.type) {
 		case c.SELECT_POST:
@@ -20,8 +20,8 @@ export default (state = null, action) => {
 					timestamp: timestamp,
 					upvotes: upvotes,
 					downvotes: downvotes,
-					id: id,
-				},
+					id: id
+				}
 			};
 		case c.SELECT_POST_NULL:
 			return null;

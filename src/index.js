@@ -10,8 +10,6 @@ import * as serviceWorker from './serviceWorker';
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-//store.subscribe(() => console.log(store.getState()));
-
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
